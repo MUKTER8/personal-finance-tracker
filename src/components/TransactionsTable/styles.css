@@ -1,0 +1,70 @@
+.transactions-table {
+  padding: 20px;
+  background: #a3b6b54d;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(206, 208, 214, 0.356);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.search-input {
+  width: 250px;
+  border-radius: 5px;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+}
+
+.clear-icon {
+  cursor: pointer;
+}
+
+.select-input {
+  width: 160px;
+}
+
+.ant-btn {
+  display: flex;
+  align-items: center;
+  background-color: #1890ff;
+  color: white;
+  border-radius: 5px;
+}
+
+.ant-btn:hover {
+  background-color: #40a9ff !important;
+  color: white !important;
+}
+
+.ant-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ant-table-thead > tr > th {
+  background: #eef3f7;
+  font-weight: bold;
+
+}
+
+.ant-table-row:hover {
+  background: rgba(24, 144, 255, 0.1) !important;
+}
+.income-text {
+
+  font-weight: bold;
+}
+
+.expense-text {
+
+  font-weight: bold;
+}
+
+.ant-pagination {
+  margin-top: 12px;
+}

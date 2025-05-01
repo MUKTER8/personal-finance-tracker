@@ -1,38 +1,260 @@
-.App {
-  text-align: center;
+:root {
+  /* Color Palette */
+  --primary: #4f46e5;
+  --primary-light: #6366f1;
+  --primary-dark: #4338ca;
+  --secondary: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+
+  /* Text Colors */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --text-white: #ffffff;
+
+  /* Backgrounds */
+  --bg-primary: #f9fafb;
+  --bg-secondary: #f3f4f6;
+  --bg-white: #ffffff;
+  --bg-dark: #1f2937;
+
+  /* Borders */
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+  --border-dark: #9ca3af;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Typography */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Base Styles */
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Dashboard Layout */
+.financial-dashboard {
+  width: 100%; /* Full screen width */
+  height: 100%; /* Full screen height (optional, if you want full page) */
+  margin: 0;
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-primary);
+}
+
+/* Chart Containers */
+.analytics-section {
+  background: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.analytics-section:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--border-light);
 }
 
-.App-link {
-  color: #61dafb;
+.section-title {
+  color: var(--text-primary);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.025em;
 }
 
-@keyframes App-logo-spin {
+/* Chart Container */
+.chart-container {
+  padding: var(--space-lg);
+  height: 480px;
+  position: relative;
+}
+
+/* No Data State */
+.no-data-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-tertiary);
+  font-size: var(--text-lg);
+  text-align: center;
+  width: 100%;
+  padding: var(--space-lg);
+}
+
+.no-data-message svg {
+  margin-bottom: var(--space-md);
+  color: var(--border-medium);
+}
+
+/* Time Filter Controls */
+.time-filter {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.time-filter span {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 6px;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.time-filter span:hover {
+  background: var(--bg-secondary);
+  color: var(--primary);
+}
+
+.time-filter .active {
+  background: var(--primary);
+  color: var(--text-white);
+}
+
+/* Tooltip Customization */
+.g2-tooltip {
+  font-family: var(--font-sans) !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .financial-dashboard {
+    padding: var(--space-lg);
+  }
+
+  .chart-header {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .chart-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .financial-dashboard {
+    padding: var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .time-filter {
+    margin-top: var(--space-sm);
+    align-self: flex-end;
+  }
+
+  .chart-container {
+    padding: var(--space-md);
+    height: 350px;
+  }
+
+  .section-title {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-container {
+    height: 300px;
+  }
+
+  .no-data-message {
+    font-size: var(--text-base);
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.charts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.line-chart {
+  flex: 2;
+  min-width: 68%;
+}
+
+.pie-chart {
+  flex: 1;
+  min-width: 30%;
 }
