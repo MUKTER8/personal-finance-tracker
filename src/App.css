@@ -248,13 +248,3 @@ body {
   gap: 20px;
   justify-content: space-between;
 }
-
-.line-chart {
-  flex: 2;
-  min-width: 68%;
-}
-
-.pie-chart {
-  flex: 1;
-  min-width: 30%;
-}
