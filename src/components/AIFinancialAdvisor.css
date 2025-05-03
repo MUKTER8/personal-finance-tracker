@@ -1,0 +1,531 @@
+/* Main Card Styles */
+.financial-dashboard-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: none;
+  overflow: hidden;
+  background: #fff;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-icon {
+  font-size: 24px;
+  color: #1890ff;
+  margin-right: 12px;
+}
+
+.header-info-icon {
+  font-size: 16px;
+  color: #8c8c8c;
+  margin-left: 8px;
+  cursor: help;
+}
+
+.header-title {
+  margin: 0;
+  font-weight: 600;
+  color: #262626;
+  font-size: 18px;
+}
+
+/* Alert & Loading States */
+.alert-message {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border-left: 4px solid #ff4d4f;
+}
+
+.loading-state {
+  padding: 40px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-subtext {
+  margin-top: 12px;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+/* Dashboard Layout */
+.dashboard-content {
+  padding: 8px;
+}
+
+.section-title {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #262626;
+  letter-spacing: 0.5px;
+}
+
+.section-divider {
+  margin: 16px 0;
+  background-color: #f0f0f0;
+}
+
+/* Metrics Overview */
+.metrics-row {
+  margin-bottom: 8px;
+}
+
+.metric-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.metric-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.metric-icon {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #1890ff;
+}
+
+.income-card .metric-icon {
+  color: #52c41a;
+}
+
+.expenses-card .metric-icon {
+  color: #ff4d4f;
+}
+
+.savings-card .metric-icon {
+  color: #1890ff;
+}
+
+.metric-label {
+  display: block;
+  color: #595959;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.metric-value {
+  margin: 8px 0;
+  color: #262626;
+  font-weight: 600;
+}
+
+.metric-comparison {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.savings-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.health-tag {
+  border-radius: 12px;
+  margin-left: 8px;
+  font-weight: 500;
+  padding: 0 8px;
+}
+
+.savings-progress {
+  margin-top: 8px;
+}
+
+/* Expenditure Breakdown Section */
+.expenditure-overview {
+  margin-bottom: 16px;
+}
+
+.expenditure-summary-card {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+}
+
+.expenditure-pie-chart {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.expenditure-pie-chart .chart-icon {
+  font-size: 48px;
+  color: #1890ff;
+  opacity: 0.8;
+}
+
+.chart-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.expenditure-comparison {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #595959;
+}
+
+.category-details-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.category-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+}
+
+.category-item:last-child {
+  border-bottom: none;
+}
+
+.category-rank {
+  width: 40px;
+  text-align: center;
+  font-weight: 500;
+  color: #8c8c8c;
+}
+
+.category-icon {
+  font-size: 20px;
+  margin-right: 12px;
+  color: #595959;
+}
+
+.category-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.category-name {
+  display: block;
+  font-weight: 500;
+  color: #262626;
+}
+
+.category-values {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.category-amount {
+  font-weight: 600;
+}
+
+.category-percentage {
+  color: #8c8c8c;
+  font-size: 13px;
+}
+
+.category-progress {
+  width: 150px;
+  margin-left: 16px;
+}
+
+.trend-analysis {
+  padding: 24px;
+  text-align: center;
+  color: #8c8c8c;
+}
+
+.savings-potential-list .savings-potential-item {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+.potential-text {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.potential-amount {
+  text-align: right;
+  min-width: 100px;
+}
+
+.potential-amount strong {
+  color: #52c41a;
+}
+
+.expenditure-insights {
+  margin-top: 16px;
+}
+
+.insights-card {
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+/* Add this to your existing CSS */
+.insights-card .ant-card-head {
+  display: flex;
+  align-items: center;
+}
+
+.glow-icon {
+  color: #ffd700;
+  text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+  animation: glow-pulse 2s infinite alternate;
+}
+
+@keyframes glow-pulse {
+  from {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+  }
+  to {
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+  }
+}
+.insight-item {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.insight-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Recommendations Section */
+.recommendations {
+  margin-top: 32px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.section-icon {
+  color: #faad14;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  margin: 0;
+  color: #262626;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #8c8c8c;
+}
+
+/* Strategy Cards */
+.strategy-tabs .ant-tabs-nav {
+  margin-bottom: 24px;
+}
+
+.tab-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.strategy-list {
+  background: transparent;
+}
+
+.strategy-card {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.strategy-card.high {
+  border-left-color: #f5222d;
+}
+
+.strategy-card.medium {
+  border-left-color: #fa8c16;
+}
+
+.strategy-card.low {
+  border-left-color: #52c41a;
+}
+
+.strategy-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.strategy-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.priority-tag {
+  margin-right: 0;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.strategy-difficulty,
+.strategy-savings {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #595959;
+  font-size: 13px;
+}
+
+.strategy-title {
+  margin-bottom: 8px !important;
+  color: #262626;
+}
+
+.strategy-description {
+  color: #595959;
+  line-height: 1.5;
+}
+
+.strategy-details {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed #f0f0f0;
+}
+
+.action-steps .ant-steps-item-content {
+  min-height: 48px;
+}
+
+/* Summary Section */
+.strategy-summary {
+  margin-top: 32px;
+}
+
+.summary-card {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f6ffed 0%, #f0f5ff 100%);
+}
+
+.summary-card .ant-statistic {
+  margin-bottom: 16px;
+}
+
+.summary-card .ant-statistic-title {
+  color: #595959;
+}
+
+.export-plan-button {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 6px;
+}
+
+/* Empty State */
+.empty-state {
+  padding: 40px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-image {
+  width: 180px;
+  height: auto;
+  margin-bottom: 24px;
+  opacity: 0.6;
+}
+
+.empty-text {
+  color: #bfbfbf;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.empty-action {
+  border-radius: 20px;
+  padding: 0 24px;
+  height: 40px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .strategy-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .strategy-card .ant-card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .category-item {
+    flex-wrap: wrap;
+  }
+
+  .category-progress {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .expenditure-pie-chart {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Animation Enhancements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-content > section {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.dashboard-content > section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.dashboard-content > section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dashboard-content > section:nth-child(3) {
+  animation-delay: 0.3s;
+}

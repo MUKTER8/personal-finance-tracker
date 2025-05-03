@@ -123,7 +123,6 @@ function SignupSigninComponents() {
           const errorMessage = error.message;
           toast.error(error.message);
           setLoading(false);
-
         });
     } catch (e) {
       console.log(e.message);

@@ -14,6 +14,7 @@ function ChartComponent({ sortedTransactions }) {
       }
       return unique;
     }, []);
+  console.log("Line Chart Data (incomeData):", incomeData);
 
   // Professional Line Chart Config
   const lineConfig = {
@@ -84,7 +85,7 @@ function ChartComponent({ sortedTransactions }) {
     },
     point: {
       size: 6,
-      shape: "circle",
+      shape: "diamond",
       style: {
         fill: "#ffffff",
         stroke: "#3b82f6",
@@ -93,44 +94,6 @@ function ChartComponent({ sortedTransactions }) {
     },
     areaStyle: {
       fill: "l(270) 0:#3b82f610 1:#3b82f600",
-    },
-    tooltip: {
-      showTitle: true,
-      title: (title) => {
-        const date = new Date(title);
-        return `Date: ${date.toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        })}`;
-      },
-      domStyles: {
-        "g2-tooltip": {
-          padding: "8px 12px",
-          background: "#ffffff",
-          borderRadius: "4px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-        },
-        "g2-tooltip-title": {
-          fontWeight: "500",
-          marginBottom: "4px",
-          color: "#111827",
-        },
-        "g2-tooltip-list-item": {
-          display: "flex",
-          alignItems: "center",
-        },
-        "g2-tooltip-marker": {
-          width: "8px",
-          height: "8px",
-          background: "#3b82f6",
-          borderRadius: "50%",
-          marginRight: "8px",
-        },
-        "g2-tooltip-value": {
-          color: "#4b5563",
-        },
-      },
     },
     interactions: [{ type: "marker-active" }, { type: "brush" }],
     smooth: true,
