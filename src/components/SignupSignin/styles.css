@@ -1,27 +1,66 @@
-.signup-wrapper{
-    width:200%;
-    max-width: 450px;
-    height: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: var(--white);
-    margin: 0 auto;
-    margin-top: 5rem;
-    border-radius:2rem;
-    padding: 1rem 1.5rem;
-    
+.signup-wrapper {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+  margin: 0 auto;
+  margin-top: 5rem;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
 }
-.title{
-    font-size:1.2rem;
-    font-weight:700;
-    text-align: center;
-    margin: 0;
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
 }
 
 .p-login {
-    display: block;  
-    text-align: center; 
-    margin: 10px 0;  
-    font-size: 14px;  
-    color: #666; 
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.input-wrapper {
+  margin-bottom: 16px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.input-field-with-icon {
+  position: relative;
+}
+
+.input-element {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Optional responsiveness */
+@media (max-width: 500px) {
+  .signup-wrapper {
+    width: 90%;
   }
-  
+}

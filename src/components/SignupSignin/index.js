@@ -5,12 +5,19 @@ import Button from "../Button";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
+// ✅ Icons
+import { FcGoogle } from "react-icons/fc";
+import { MdEmail } from "react-icons/md";
 
 function SignupSigninComponents() {
   const [name, setName] = useState("");
@@ -30,9 +37,9 @@ function SignupSigninComponents() {
     if (!userData.exists()) {
       try {
         await setDoc(userRef, {
-          name: user.displayName ? user.displayName : name,
+          name: user.displayName || name,
           email: user.email,
-          photoURL: user.photoURL ? user.photoURL : "",
+          photoURL: user.photoURL || "",
           createdAt: user.metadata.creationTime,
         });
         toast.success("User data saved successfully!");
@@ -42,7 +49,6 @@ function SignupSigninComponents() {
         setLoading(false);
       }
     } else {
-      //toast.error("User already exists!");
       setLoading(false);
     }
   }
@@ -54,14 +60,22 @@ function SignupSigninComponents() {
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user;
-            toast.success("User created successfully!");
-            setLoading(false);
-            setName("");
-            setPassword("");
-            setEmail("");
-            setConfirmPassword("");
-            createDoc(user);
-            navigate("/dashboard");
+
+            updateProfile(user, { displayName: name })
+              .then(() => {
+                createDoc(user);
+                toast.success("User created successfully!");
+                setLoading(false);
+                setName("");
+                setPassword("");
+                setEmail("");
+                setConfirmPassword("");
+                navigate("/dashboard");
+              })
+              .catch((error) => {
+                toast.error("Profile update failed: " + error.message);
+                setLoading(false);
+              });
           })
           .catch((error) => {
             toast.error(error.message);
@@ -78,19 +92,18 @@ function SignupSigninComponents() {
   }
 
   function loginUsingEmail() {
-    console.log(email, password);
     setLoading(true);
-
     if (email && password) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           toast.success("Login successfully!");
           setLoading(false);
           navigate("/dashboard");
-          console.log("User Logged in successfully!", userCredential.user);
         })
-        .catch((error) => toast.error(error.message));
-      setLoading(false);
+        .catch((error) => {
+          toast.error(error.message);
+          setLoading(false);
+        });
     } else {
       toast.error("All fields are required");
       setLoading(false);
@@ -104,28 +117,19 @@ function SignupSigninComponents() {
     try {
       signInWithPopup(auth, provider)
         .then((result) => {
-          // This gives you a Google Access Token. You can use it to access the Google API.
           const credential = GoogleAuthProvider.credentialFromResult(result);
           const token = credential.accessToken;
-          // The signed-in user info.
           const user = result.user;
-          console.log("user>>>", user);
           createDoc(user);
           navigate("/dashboard");
           toast.success("Login successfully!");
           setLoading(false);
-          // IdP data available using getAdditionalUserInfo(result)
-          // ...
         })
         .catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
           toast.error(error.message);
           setLoading(false);
         });
     } catch (e) {
-      console.log(e.message);
       toast.error(e.message);
       setLoading(false);
     }
@@ -155,12 +159,30 @@ function SignupSigninComponents() {
             />
             <Button
               disabled={loading}
-              text={loading ? "Loading..." : "Login with Email"}
+              text={
+                loading ? (
+                  "Loading..."
+                ) : (
+                  <>
+                    <MdEmail style={{ marginRight: "8px" }} />
+                    Login with Email
+                  </>
+                )
+              }
               onClick={loginUsingEmail}
               blue={true}
             />
             <p className="p-login">or</p>
-            <Button onClick={googleAuth} text="Login with Google" blue={true} />
+            <Button
+              onClick={googleAuth}
+              text={
+                <>
+                  <FcGoogle style={{ marginRight: "8px" }} />
+                  Login with Google
+                </>
+              }
+              blue={true}
+            />
             <p
               className="p-login"
               style={{
@@ -190,7 +212,7 @@ function SignupSigninComponents() {
               label="Full Name"
               state={name}
               setState={setName}
-              placeholder="John Doe"
+              placeholder="Mukter Hosain"
             />
             <Input
               type="email"
@@ -215,15 +237,29 @@ function SignupSigninComponents() {
             />
             <Button
               disabled={loading}
-              text={loading ? "Loading..." : "Signup with Email"}
-              blue={true}
+              text={
+                loading ? (
+                  "Loading..."
+                ) : (
+                  <>
+                    <MdEmail style={{ marginRight: "8px" }} />
+                    Signup with Email
+                  </>
+                )
+              }
               type="submit"
               onClick={signupWithEmail}
+              blue={true}
             />
             <p className="p-login">or</p>
             <Button
               onClick={googleAuth}
-              text="Signup with Google"
+              text={
+                <>
+                  <FcGoogle style={{ marginRight: "8px" }} />
+                  Signup with Google
+                </>
+              }
               blue={true}
             />
             <p
